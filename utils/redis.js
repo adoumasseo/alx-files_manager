@@ -3,7 +3,7 @@ const { createClient } = require('redis');
 class RedisClient {
   constructor() {
     this.client = createClient();
-    this.client.on('error', (err) => console.log('Redis Client Error', err));
+    this.client.on('error', (err) => console.error('Redis client failed to connect:', err.message || err.toString()));
   }
 
   async isAlive() {
