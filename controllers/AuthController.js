@@ -20,7 +20,7 @@ class UsersController {
     res.status(200).send(`{ "token": ${idToken}}`);
   }
 
-  static async disconnect(req, res) {
+  static async getDisconnect(req, res) {
     const authToken = req.headers['X-Token'];
     const key = `auth_${authToken}`;
     const result = await redisClient.get(key);
